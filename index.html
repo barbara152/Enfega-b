@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ENFEGA</title>
+    <style>
+        body {
+            background-color: darkblue;
+            color: lightblue;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            min-height:  100vh;
+        }
+
+        h1 {
+            color: lightblue;
+            font-size: 5em;
+            margin-top: 20px;
+        }
+
+        button {
+            display: none; /* Inicialmente, oculte os botões */
+            background-color: lightblue;
+            color: darkblue;
+            padding: 10px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        img {
+            max-width: 100%;
+            max-height: 70vh;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>ENFEGA</h1>
+
+<button id="botao1" onclick="mostrarImagem('https://i.ibb.co/cQmxqTy/enfega-1.jpg')">Clica para saber quem é o ENFEGA</button>
+
+<button id="botao2" onclick="mostrarImagem('https://i.ibb.co/Nj58V3Q/enfega-2.jpg')">Alguma suspeita?</button>
+
+<button id="botao3" onclick="mostrarImagem('https://i.ibb.co/jHTKbKJ/enfega-3.jpg')">Vá agora a sério, o maior ENFEGA é:</button>
+
+<script>
+    var botaoAtual = 1;
+
+    function mostrarImagem(url) {
+        var imagem = document.createElement('img');
+        imagem.src = url;
+        document.body.appendChild(imagem);
+
+        // Oculte o botão atual e mostre o próximo
+        document.getElementById('botao' + botaoAtual).style.display = 'none';
+        botaoAtual++;
+
+        // Se não houver mais botões, reinicie a contagem
+        if (botaoAtual > 3) {
+            botaoAtual = 1;
+        }
+
+        // Mostre o próximo botão após um curto intervalo de tempo (1000 milissegundos = 1 segundo)
+        setTimeout(function() {
+            document.getElementById('botao' + botaoAtual).style.display = 'block';
+        }, 1000);
+    }
+
+    // Mostrar o primeiro botão inicialmente
+    document.getElementById('botao1').style.display = 'block';
+</script>
+
+</body>
+</html>
+
